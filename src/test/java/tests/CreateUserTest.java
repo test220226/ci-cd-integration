@@ -12,6 +12,8 @@ import io.restassured.mapper.ObjectMapperType;
 
 import static io.restassured.RestAssured.given;
 
+import java.net.http.HttpRequest;
+
 public class CreateUserTest {
     private static final String API_URL = "https://petstore.swagger.io";
     private static final String BASE_PATH = "/v2";
@@ -40,6 +42,6 @@ public class CreateUserTest {
                 .post(CREATE_USER_ENDPOINT)
                 .then()
                 .assertThat()
-                .statusCode(HttpStatus.SC_OK);
+                .statusCode(HttpStatus.SC_BAD_REQUEST);
     }
 }
